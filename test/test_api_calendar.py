@@ -1,25 +1,21 @@
-from models.api_calendar import Calendar
+from services.api_calendar import Api
 import pytest
 
 
 @pytest.fixture
 def calendar():
-    calendar = Calendar(
-        year= "2020",
-        month= "7",
-        day="25",
+    calendar = Api(
+        year=2020,
+        month=7,
+        day=25,
         plant="Aloe")
-
     return calendar
 
 
 def test_calendar_return_json(calendar):
-    expected =[{"year": "2020",
-        "month": "7",
-        "day": "25",
-        "plant": "Aloe"}]
-
+    expected = json
     result = calendar.convertJson()
 
-    return expected == result
+    assert expected == result
+
 
